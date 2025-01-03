@@ -11,6 +11,7 @@ type PropsType = {
   id: string;
   title: string;
   tasks: Array<TaskType>;
+  deleteTodoList: (todolistID: string) => void;
   removeTask: (taskId: string) => void;
   changeFilter: (curList: string, value: FilterValuesType) => void;
   addTask: (todolistID: string, title: string, isDone?: boolean) => void;
@@ -103,6 +104,8 @@ export function Todolist(props: PropsType) {
         >
           Completed
         </button>
+
+        <button onClick={() => props.deleteTodoList(props.id)}>Delete</button>
       </div>
     </div>
   );
